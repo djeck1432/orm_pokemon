@@ -61,7 +61,7 @@ def show_pokemon(request, pokemon_id):
                 'img_url': pokemon.evolution.image.url,
             }
 
-    next_evolution_pokemon = pokemon.evolutions_pokemon.first()
+    next_evolution_pokemon = pokemon.pokemon_evolutions.first()
     if next_evolution_pokemon is not None:
         pokemon_descriptions['next_evolution'] = {
             'title_ru': next_evolution_pokemon.title_ru,
