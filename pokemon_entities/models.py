@@ -3,11 +3,11 @@ from django.db import models
 
 class Pokemon(models.Model):
     title_ru = models.CharField('названия покемона на русском', max_length=200)
-    title_en = models.CharField('названия покемона на английском', max_length=200)
-    title_jp = models.CharField('названия покемона на японском', max_length=200)
+    title_en = models.CharField('названия покемона на английском', max_length=200, blank=True)
+    title_jp = models.CharField('названия покемона на японском', max_length=200, blank=True)
     image = models.ImageField('изображения покемона', null=True)
-    description = models.TextField('описания к покемону')
-    evolution = models.ForeignKey('self', verbose_name='эволюция  покемонов', related_name='pokemons_evolution',
+    description = models.TextField('описания к покемону', blank=True)
+    evolution = models.ForeignKey('self', verbose_name='эволюция  покемонов', related_name='evolutions_pokemon',
                                   null=True, blank=True, on_delete=models.SET_NULL)
 
     def __str__(self):
